@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>댓글 시스템</title>
+    <style>
+        /* 스타일 시트 */
+        .comment {
+            border: 1px solid #fff;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>댓글 시스템</h1>
+
+    <div class="comment-form">
+        <h2>댓글 작성</h2>
+        <textarea id="comment-text" rows="4" cols="50"></textarea><br>
+        <button onclick="addComment()">댓글 등록</button>
+    </div>
+
+    <div class="comments">
+        <h2>댓글 목록</h2>
+        <div id="comment-list"></div>
+    </div>
+
+    <script>
+        // JavaScript 코드
+        function addComment() {
+            // 입력한 댓글 내용 가져오기
+            var commentText = document.getElementById("comment-text").value;
+
+            // 댓글 목록에 새로운 댓글 추가
+            var commentList = document.getElementById("comment-list");
+            var commentDiv = document.createElement("div");
+            commentDiv.className = "comment";
+            commentDiv.textContent = commentText;
+            commentList.appendChild(commentDiv);
+
+            // 입력 필드 비우기
+            document.getElementById("comment-text").value = "";
+        }
+    </script>
+</body>
+</html>
